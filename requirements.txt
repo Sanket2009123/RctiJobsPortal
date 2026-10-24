@@ -3,6 +3,7 @@ Werkzeug
 Jinja2
 itsdangerous
 click
+Authlib
 
 firebase-admin
 python-dotenv
