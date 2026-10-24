@@ -47,8 +47,8 @@ oauth = OAuth(app)
 # ==========================
 # Upload Folders
 # ==========================
-app.config["PROFILE_FOLDER"] = "static/uploads/profile"
-app.config["RESUME_FOLDER"] = "static/uploads/resume"
+app.config["PROFILE_FOLDER"] = os.path.join(app.root_path, "static", "uploads", "profile")
+app.config["RESUME_FOLDER"] = os.path.join(app.root_path, "static", "uploads", "resume")
 
 os.makedirs(app.config["PROFILE_FOLDER"], exist_ok=True)
 os.makedirs(app.config["RESUME_FOLDER"], exist_ok=True)

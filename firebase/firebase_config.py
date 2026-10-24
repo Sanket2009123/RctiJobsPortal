@@ -24,13 +24,13 @@ def get_firebase_credential():
     # Production / Environment Variable
     # ------------------------------------------
     if firebase_json:
+        if os.path.exists(firebase_json):
+            return credentials.Certificate(firebase_json)
         try:
             service_account_info = json.loads(firebase_json)
             return credentials.Certificate(service_account_info)
-        except json.JSONDecodeError as e:
-            raise RuntimeError(
-                "Invalid FIREBASE_SERVICE_ACCOUNT JSON."
-            ) from e
+        except json.JSONDecodeError:
+            pass
 
     # ------------------------------------------
     # Local Development

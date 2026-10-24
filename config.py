@@ -1,4 +1,8 @@
 import os
+from dotenv import load_dotenv
+
+# Load .env if present
+load_dotenv()
 
 # ==========================
 # Flask Security
