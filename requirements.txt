@@ -16,5 +16,6 @@ google-cloud-firestore
 Pillow
 reportlab
 WeasyPrint
+libsql
 
 gunicorn
