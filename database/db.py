@@ -14,15 +14,21 @@ def get_connection():
     return get_turso_connection()
 
 
+
 def column_exists(conn, table_name, column_name):
-    # Table and column names below are internal application identifiers.
     if not table_name.replace("_", "").isalnum():
         raise ValueError("Invalid table name")
 
     cursor = conn.execute(
         f'PRAGMA table_info("{table_name}")'
     )
-    return any(row["name"] == column_name for row in cursor.fetchall())
+
+    # PRAGMA table_info returns:
+    # cid, name, type, notnull, dflt_value, pk
+    return any(
+        row[1] == column_name
+        for row in cursor.fetchall()
+    )
 
 
 def add_column_if_missing(
