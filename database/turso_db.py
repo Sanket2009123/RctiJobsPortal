@@ -1,3 +1,4 @@
+
 import os
 import libsql
 
@@ -15,6 +16,6 @@ def get_turso_connection():
         database=url,
         auth_token=token
     )
-    conn.row_factory = libsql.Row
+
     conn.execute("PRAGMA foreign_keys = ON")
     return conn
