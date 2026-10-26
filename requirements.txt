@@ -17,5 +17,6 @@ Pillow
 reportlab
 WeasyPrint
 libsql
+libsql-client
 
 gunicorn
